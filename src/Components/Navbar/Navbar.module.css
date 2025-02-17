@@ -1,0 +1,33 @@
+.navbar {
+  background-color: #333;
+  color: white;
+}
+
+.container--navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navList {
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.navItem {
+}
+
+.navLink {
+  color: white;
+  text-decoration: none;
+}
+
+.logo {
+  font-size: 3rem;
+  margin-inline: auto;
+
+   span {
+    color: yellow;
+  }
+}
