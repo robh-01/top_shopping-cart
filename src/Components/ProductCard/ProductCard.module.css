@@ -11,3 +11,8 @@
 .productImage {
     width: 200px;
 }
+
+.addToCartBtn {
+  display: flex;
+  gap: 1em;
+}

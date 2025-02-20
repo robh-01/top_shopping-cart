@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { CartItemsContext } from "../../App";
 import ProductCard from "../ProductCard/ProductCard";
 
 import styles from "./ProductsPage.module.css";
@@ -21,6 +22,8 @@ function useProducts() {
       })
       .then((fetchedProducts) => {
         setProducts(fetchedProducts);
+        console.log(fetchedProducts);
+
         setLoading(false);
       })
       .catch((error) => {
@@ -38,22 +41,10 @@ function useProducts() {
 
 export default function ProductsPage() {
   const { products, error, loading } = useProducts();
+  const { cartItems, setCartItems } = useContext(CartItemsContext);
+  console.log("Cart:");
+  console.log(cartItems);
 
-  // if (loading) return <p>Loading...</p>;
-
-  // if (error) return <p>An error occurred. Please try again later!</p>;
-  // console.log(products);
-
-  // return (
-  //   <>
-  //     <div className={styles.productList}>
-  //       {/* {products.map((p) => (
-  //         <ProductCard key={p.id} product={p} />
-  //       ))} */}
-  //       <ProductCard product={products[0]} />
-  //     </div>
-  //   </>
-  // );
   return (
     <>
       <div className={styles.productPage}>
@@ -65,7 +56,12 @@ export default function ProductsPage() {
           ) : (
             <div className={styles.productCardsContainer}>
               {products.map((p) => (
-                <ProductCard key={p.id} product={p} />
+                <ProductCard
+                  key={p.id}
+                  product={p}
+                  cartItems={cartItems}
+                  setCartItems={setCartItems}
+                />
               ))}
             </div>
           )}
