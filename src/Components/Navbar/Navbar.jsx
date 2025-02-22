@@ -1,9 +1,28 @@
 import { Link } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
+import { useContext } from "react";
+import { CartItemsContext } from "../../App";
 
 import styles from "./Navbar.module.css";
 
+function ShoppingCartWithBadge({ count }) {
+  return (
+    <div style={{ position: "relative", display: "inline-block" }}>
+      <ShoppingCart />
+      {count > 0 && (
+        <span
+          className={styles.cartLogoBatch}
+        >
+          {count}
+        </span>
+      )}
+    </div>
+  );
+}
+
 export default function Navbar() {
+  const { cartItems } = useContext(CartItemsContext);
+
   return (
     <nav className={styles.navbar}>
       <div className={"container " + styles["container--navbar"]}>
@@ -26,7 +45,7 @@ export default function Navbar() {
         </div>
         <div className={styles.cartIcon}>
           <Link to="/cart" className={styles.navLink}>
-            <ShoppingCart />
+            <ShoppingCartWithBadge count={cartItems.length} />
           </Link>
         </div>
       </div>

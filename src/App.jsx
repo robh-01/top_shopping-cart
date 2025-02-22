@@ -12,8 +12,8 @@ export default function App() {
 
   return (
     <>
-      <Navbar />
       <CartItemsContext.Provider value={{ cartItems, setCartItems }}>
+        <Navbar />
         <Outlet />
       </CartItemsContext.Provider>
     </>
