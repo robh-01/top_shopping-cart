@@ -1,0 +1,15 @@
+.productCard {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.productImage {
+  width: 100px;
+  height: auto;
+}
+
+.deleteButton {
+  align-self: flex-start;
+  margin-top: 2em;
+}

@@ -13,6 +13,7 @@ export default function ProductCard({ product, cartItems, setCartItems }) {
     if (productAlreadyInCart === false) {
       setCartItems((draft) => {
         draft.push({
+          cartId: crypto.randomUUID(),
           product: product,
           count: 1,
         });
