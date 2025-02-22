@@ -16,6 +16,7 @@ export default function ProductCard({ product, cartItems, setCartItems }) {
           cartId: crypto.randomUUID(),
           product: product,
           count: 1,
+          isSelectedForCheckout: false,
         });
       });
     } else {

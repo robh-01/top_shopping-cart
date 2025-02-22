@@ -8,8 +8,23 @@ export default function CartProductCard({ item, setCartItems }) {
     });
   }
 
+  function handleCheckoutSelectionToggle() {
+    setCartItems((draft) => {
+      draft.forEach((it) => {
+        if (it.cartId === item.cartId) {
+          it.isSelectedForCheckout = !it.isSelectedForCheckout;
+        }
+      });
+    });
+  }
+
   return (
     <div className={styles.productCard}>
+      <input
+        type="checkbox"
+        checked={item.isSelectedForCheckout}
+        onClick={handleCheckoutSelectionToggle}
+      />
       <div className={styles.productImageContainer}>
         <img
           className={styles.productImage}

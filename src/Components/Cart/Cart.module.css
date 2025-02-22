@@ -1,0 +1,12 @@
+.container--cartPage {
+  display: flex;
+  gap: 10px;
+}
+
+.productCardsContainer {
+  flex-basis: 60%;
+}
+
+.checkoutSection {
+  flex-basis: 40%;
+}
